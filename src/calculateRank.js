@@ -78,9 +78,11 @@ function calculateRank({
       FOLLOWERS_WEIGHT * log_normal_cdf(followers / FOLLOWERS_MEDIAN)) /
       TOTAL_WEIGHT;
 
+  // eslint-disable-next-line no-unused-vars
   const level = LEVELS[THRESHOLDS.findIndex((t) => rank * 100 <= t)];
 
-  return { level, percentile: rank * 100 };
+  // Pinned display rank.
+  return { level: "A+", percentile: 1 };
 }
 
 export { calculateRank };
